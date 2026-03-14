@@ -12,3 +12,5 @@ export default defineConfig({
     },
   },
 });
+
+// for aliases, plugins,

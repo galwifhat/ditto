@@ -1,0 +1,4053 @@
+
+====================================================
+FILE: ./.gitignore
+====================================================
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+====================================================
+FILE: ./README.md
+====================================================
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## Tech Stack
+
+This project is built using the following technologies:
+
+### Frontend
+
+- **[React](https://reactjs.org/)** – JavaScript library for building user interfaces
+- **[Vite](https://vitejs.dev/)** – Fast development and build tool
+- **[Tailwind CSS](https://tailwindcss.com/)** – Utility-first CSS framework for styling
+- **[shadcn/ui](https://ui.shadcn.com/)** – Tailwind-based React component library
+- **[Lucide React](https://lucide.dev/)** – Icon library used in components
+
+### Utilities
+
+- **[clsx](https://github.com/lukeed/clsx)** – Utility for conditional class names
+- **[class-variance-authority](https://cva.style/)** – Variants for Tailwind component styling
+- **[tailwind-merge](https://tailwind-merge.vercel.app/)** – Merges Tailwind classes without conflicts
+- **[tw-animate-css](https://tailwind-animate-css.vercel.app/)** – Ready-made Tailwind animations
+
+### Routing & State
+
+- **[React Router DOM](https://reactrouter.com/)** – Client-side routing for React
+- **[React Hot Toast](https://react-hot-toast.com/)** – Notifications & toast messages
+- **[date-fns](https://date-fns.org/)** – Modern date utility library
+
+### Development Tools
+
+- **[ESLint](https://eslint.org/)** – Linting for code quality
+- **[Vite React Plugin](https://github.com/vitejs/vite-plugin-react)** – React fast refresh integration for Vite
+- **TypeScript Types (`@types/react`, `@types/react-dom`)** – Optional type definitions for TypeScript
+
+====================================================
+FILE: ./components.json
+====================================================
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "radix-nova",
+  "rsc": false,
+  "tsx": false,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "src/index.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "registries": {}
+}
+
+====================================================
+FILE: ./ditto_project_dump.txt
+====================================================
+
+====================================================
+FILE: ./.gitignore
+====================================================
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+====================================================
+FILE: ./README.md
+====================================================
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## Tech Stack
+
+This project is built using the following technologies:
+
+### Frontend
+
+- **[React](https://reactjs.org/)** – JavaScript library for building user interfaces
+- **[Vite](https://vitejs.dev/)** – Fast development and build tool
+- **[Tailwind CSS](https://tailwindcss.com/)** – Utility-first CSS framework for styling
+- **[shadcn/ui](https://ui.shadcn.com/)** – Tailwind-based React component library
+- **[Lucide React](https://lucide.dev/)** – Icon library used in components
+
+### Utilities
+
+- **[clsx](https://github.com/lukeed/clsx)** – Utility for conditional class names
+- **[class-variance-authority](https://cva.style/)** – Variants for Tailwind component styling
+- **[tailwind-merge](https://tailwind-merge.vercel.app/)** – Merges Tailwind classes without conflicts
+- **[tw-animate-css](https://tailwind-animate-css.vercel.app/)** – Ready-made Tailwind animations
+
+### Routing & State
+
+- **[React Router DOM](https://reactrouter.com/)** – Client-side routing for React
+- **[React Hot Toast](https://react-hot-toast.com/)** – Notifications & toast messages
+- **[date-fns](https://date-fns.org/)** – Modern date utility library
+
+### Development Tools
+
+- **[ESLint](https://eslint.org/)** – Linting for code quality
+- **[Vite React Plugin](https://github.com/vitejs/vite-plugin-react)** – React fast refresh integration for Vite
+- **TypeScript Types (`@types/react`, `@types/react-dom`)** – Optional type definitions for TypeScript
+
+====================================================
+FILE: ./components.json
+====================================================
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "radix-nova",
+  "rsc": false,
+  "tsx": false,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "src/index.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "registries": {}
+}
+
+====================================================
+FILE: ./eslint.config.js
+====================================================
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+])
+
+====================================================
+FILE: ./index.html
+====================================================
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ditto</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+====================================================
+FILE: ./jsconfig.json
+====================================================
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx"
+  }
+}
+
+====================================================
+FILE: ./package.json
+====================================================
+{
+  "name": "ditto",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.2.8",
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.2.0",
+    "@tailwindcss/vite": "^4.2.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^0.577.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-hot-toast": "^2.6.0",
+    "react-router-dom": "^7.13.1",
+    "shadcn": "^4.0.6",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.1",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "vite": "^7.3.1"
+  }
+}
+
+====================================================
+FILE: ./project_dump.txt
+====================================================
+
+====================================================
+FILE: ./src/App.jsx
+====================================================
+
+
+function App() {
+
+
+  return (
+    <>
+      <div>Hello World</div>
+    </>
+  )
+}
+
+export default App
+
+====================================================
+FILE: ./src/components/ui/button.jsx
+====================================================
+import * as React from "react"
+import { cva } from "class-variance-authority";
+import { Slot } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+        outline:
+          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+        ghost:
+          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+        destructive:
+          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default:
+          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
+        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3",
+        icon: "size-8",
+        "icon-xs":
+          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm":
+          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
+        "icon-lg": "size-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+)
+
+function Button({
+  className,
+  variant = "default",
+  size = "default",
+  asChild = false,
+  ...props
+}) {
+  const Comp = asChild ? Slot.Root : "button"
+
+  return (
+    <Comp
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props} />
+  );
+}
+
+export { Button, buttonVariants }
+
+====================================================
+FILE: ./src/components/ui/dialog.jsx
+====================================================
+import * as React from "react"
+import { Dialog as DialogPrimitive } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { XIcon } from "lucide-react"
+
+function Dialog({
+  ...props
+}) {
+  return <DialogPrimitive.Root data-slot="dialog" {...props} />;
+}
+
+function DialogTrigger({
+  ...props
+}) {
+  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
+}
+
+function DialogPortal({
+  ...props
+}) {
+  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
+}
+
+function DialogClose({
+  ...props
+}) {
+  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
+}
+
+function DialogOverlay({
+  className,
+  ...props
+}) {
+  return (
+    <DialogPrimitive.Overlay
+      data-slot="dialog-overlay"
+      className={cn(
+        "fixed inset-0 isolate z-50 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        className
+      )}
+      {...props} />
+  );
+}
+
+function DialogContent({
+  className,
+  children,
+  showCloseButton = true,
+  ...props
+}) {
+  return (
+    <DialogPortal>
+      <DialogOverlay />
+      <DialogPrimitive.Content
+        data-slot="dialog-content"
+        className={cn(
+          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-background p-4 text-sm ring-1 ring-foreground/10 duration-100 outline-none sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          className
+        )}
+        {...props}>
+        {children}
+        {showCloseButton && (
+          <DialogPrimitive.Close data-slot="dialog-close" asChild>
+            <Button variant="ghost" className="absolute top-2 right-2" size="icon-sm">
+              <XIcon />
+              <span className="sr-only">Close</span>
+            </Button>
+          </DialogPrimitive.Close>
+        )}
+      </DialogPrimitive.Content>
+    </DialogPortal>
+  );
+}
+
+function DialogHeader({
+  className,
+  ...props
+}) {
+  return (
+    <div
+      data-slot="dialog-header"
+      className={cn("flex flex-col gap-2", className)}
+      {...props} />
+  );
+}
+
+function DialogFooter({
+  className,
+  showCloseButton = false,
+  children,
+  ...props
+}) {
+  return (
+    <div
+      data-slot="dialog-footer"
+      className={cn(
+        "-mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t bg-muted/50 p-4 sm:flex-row sm:justify-end",
+        className
+      )}
+      {...props}>
+      {children}
+      {showCloseButton && (
+        <DialogPrimitive.Close asChild>
+          <Button variant="outline">Close</Button>
+        </DialogPrimitive.Close>
+      )}
+    </div>
+  );
+}
+
+function DialogTitle({
+  className,
+  ...props
+}) {
+  return (
+    <DialogPrimitive.Title
+      data-slot="dialog-title"
+      className={cn("text-base leading-none font-medium", className)}
+      {...props} />
+  );
+}
+
+function DialogDescription({
+  className,
+  ...props
+}) {
+  return (
+    <DialogPrimitive.Description
+      data-slot="dialog-description"
+      className={cn(
+        "text-sm text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground",
+        className
+      )}
+      {...props} />
+  );
+}
+
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+}
+
+====================================================
+FILE: ./src/index.css
+====================================================
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.809 0.105 251.813);
+    --chart-2: oklch(0.623 0.214 259.815);
+    --chart-3: oklch(0.546 0.245 262.881);
+    --chart-4: oklch(0.488 0.243 264.376);
+    --chart-5: oklch(0.424 0.199 265.638);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.809 0.105 251.813);
+    --chart-2: oklch(0.623 0.214 259.815);
+    --chart-3: oklch(0.546 0.245 262.881);
+    --chart-4: oklch(0.488 0.243 264.376);
+    --chart-5: oklch(0.424 0.199 265.638);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@theme inline {
+    --font-sans: 'Geist Variable', sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+====================================================
+FILE: ./src/lib/utils.js
+====================================================
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
+
+====================================================
+FILE: ./src/main.jsx
+====================================================
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+====================================================
+FILE: ./tailwind.config.js
+====================================================
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+====================================================
+FILE: ./vite.config.js
+====================================================
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from "@tailwindcss/vite";
+import path from "path";
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+});
+
+// for aliases, plugins,
+====================================================
+FILE: ./eslint.config.js
+====================================================
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+])
+
+====================================================
+FILE: ./index.html
+====================================================
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ditto</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+====================================================
+FILE: ./jsconfig.json
+====================================================
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx"
+  }
+}
+
+====================================================
+FILE: ./package.json
+====================================================
+{
+  "name": "ditto",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.2.8",
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.2.0",
+    "@tailwindcss/vite": "^4.2.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^0.577.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-hot-toast": "^2.6.0",
+    "react-router-dom": "^7.13.1",
+    "shadcn": "^4.0.6",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.1",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "vite": "^7.3.1"
+  }
+}
+
+====================================================
+FILE: ./project_dump.txt
+====================================================
+
+====================================================
+FILE: ./src/App.jsx
+====================================================
+export default function App() {
+  return null; // Nothing needed here, router handles all
+}
+
+====================================================
+FILE: ./src/components/Benefits.jsx
+====================================================
+import { Leaf, Shield, FlaskConical, Recycle, Heart, Droplets } from "lucide-react";
+
+const benefits = [
+  {
+    icon: Leaf,
+    title: "Natural Ingredients",
+    description: "Every formula starts with plant-based ingredients sourced from trusted farms around the world.",
+    color: "text-ditto-sage bg-ditto-sage-light",
+  },
+  {
+    icon: Heart,
+    title: "Cruelty-Free",
+    description: "No animal testing — ever. DITTO is certified cruelty-free and proudly vegan across all product lines.",
+    color: "text-rose-600 bg-rose-50",
+  },
+  {
+    icon: Shield,
+    title: "Dermatologist Tested",
+    description: "Every product is dermatologist tested and approved for sensitive skin before it reaches your hands.",
+    color: "text-blue-600 bg-blue-50",
+  },
+  {
+    icon: Recycle,
+    title: "Sustainable Packaging",
+    description: "All packaging is recycled or biodegradable. Beautiful products shouldn't cost the earth — literally.",
+    color: "text-emerald-600 bg-emerald-50",
+  },
+  {
+    icon: FlaskConical,
+    title: "Clean Formula",
+    description: "Free from parabens, sulfates, artificial fragrances, and over 1,400 EU-banned ingredients.",
+    color: "text-purple-600 bg-purple-50",
+  },
+  {
+    icon: Droplets,
+    title: "Deeply Hydrating",
+    description: "Our formulas penetrate multiple layers of skin for lasting hydration — not just surface moisture.",
+    color: "text-cyan-600 bg-cyan-50",
+  },
+];
+
+export default function Benefits() {
+  return (
+    <section className="py-24 bg-gradient-to-b from-white to-ditto-cream/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-4 block">
+            Why DITTO
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 tracking-tight">
+            Skincare You Can{" "}
+            <span className="text-primary">Trust</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+            We hold ourselves to the highest standards — because your skin deserves nothing less.
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map(({ icon: Icon, title, description, color }) => (
+            <div
+              key={title}
+              className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-md"
+            >
+              <div
+                className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${color} group-hover:scale-110 transition-transform duration-300`}
+              >
+                <Icon className="w-5 h-5" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">{title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+====================================================
+FILE: ./src/components/CartSidebar.jsx
+====================================================
+import { X, ShoppingBag, Trash2, Plus, Minus } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+import { Link } from "react-router-dom";
+
+export default function CartSidebar() {
+  const { cartItems, cartCount, cartTotal, isCartOpen, setIsCartOpen, removeFromCart, updateQty } = useCart();
+
+  if (!isCartOpen) return null;
+
+  return (
+    <>
+      {/* Overlay */}
+      <div
+        className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200"
+        onClick={() => setIsCartOpen(false)}
+      />
+
+      {/* Drawer */}
+      <div className="fixed right-0 top-0 bottom-0 z-50 w-full max-w-md bg-card shadow-2xl animate-in slide-in-from-right duration-300 flex flex-col">
+        {/* Header */}
+        <div className="flex items-center justify-between p-5 border-b border-border">
+          <div className="flex items-center gap-2">
+            <ShoppingBag className="w-5 h-5 text-primary" />
+            <h2 className="font-semibold text-foreground">
+              Your Cart
+              {cartCount > 0 && (
+                <span className="ml-2 text-sm text-muted-foreground font-normal">
+                  ({cartCount} item{cartCount !== 1 ? "s" : ""})
+                </span>
+              )}
+            </h2>
+          </div>
+          <button
+            onClick={() => setIsCartOpen(false)}
+            className="w-8 h-8 rounded-full hover:bg-accent flex items-center justify-center transition-colors"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Items */}
+        <div className="flex-1 overflow-y-auto p-5 space-y-4">
+          {cartItems.length === 0 ? (
+            <div className="flex flex-col items-center justify-center h-full text-center gap-4 py-16">
+              <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center">
+                <ShoppingBag className="w-8 h-8 text-muted-foreground" />
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Your cart is empty</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Add some products to get started!
+                </p>
+              </div>
+              <Link
+                to="/shop"
+                onClick={() => setIsCartOpen(false)}
+                className="px-6 py-2.5 bg-primary text-primary-foreground rounded-xl text-sm font-semibold hover:bg-primary/90 transition-colors"
+              >
+                Shop Now
+              </Link>
+            </div>
+          ) : (
+            cartItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex gap-4 p-3 rounded-2xl bg-background border border-border"
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-16 h-20 object-cover rounded-xl flex-shrink-0 bg-accent"
+                />
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-foreground leading-snug line-clamp-2">
+                    {item.name}
+                  </p>
+                  <p className="text-sm font-bold text-primary mt-1">
+                    ${(item.price * item.qty).toFixed(2)}
+                  </p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <button
+                      onClick={() => updateQty(item.id, item.qty - 1)}
+                      className="w-6 h-6 rounded-full border border-border flex items-center justify-center hover:bg-accent transition-colors"
+                    >
+                      <Minus className="w-3 h-3" />
+                    </button>
+                    <span className="text-sm font-medium w-4 text-center">{item.qty}</span>
+                    <button
+                      onClick={() => updateQty(item.id, item.qty + 1)}
+                      className="w-6 h-6 rounded-full border border-border flex items-center justify-center hover:bg-accent transition-colors"
+                    >
+                      <Plus className="w-3 h-3" />
+                    </button>
+                  </div>
+                </div>
+                <button
+                  onClick={() => removeFromCart(item.id)}
+                  className="w-7 h-7 rounded-full hover:bg-destructive/10 flex items-center justify-center text-muted-foreground hover:text-destructive transition-colors flex-shrink-0"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Footer */}
+        {cartItems.length > 0 && (
+          <div className="p-5 border-t border-border space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-muted-foreground">Subtotal</span>
+              <span className="font-semibold text-foreground">${cartTotal.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-muted-foreground">Shipping</span>
+              <span className="text-sm text-ditto-sage font-medium">
+                {cartTotal >= 50 ? "Free!" : "$5.99"}
+              </span>
+            </div>
+            {cartTotal < 50 && (
+              <p className="text-xs text-muted-foreground bg-accent/60 rounded-xl px-3 py-2">
+                💡 Add ${(50 - cartTotal).toFixed(2)} more for free shipping!
+              </p>
+            )}
+            <button className="w-full py-4 bg-primary text-primary-foreground rounded-2xl font-semibold text-sm hover:bg-primary/90 active:scale-[0.98] transition-all shadow-lg shadow-primary/20">
+              Checkout · ${(cartTotal + (cartTotal >= 50 ? 0 : 5.99)).toFixed(2)}
+            </button>
+            <button
+              onClick={() => setIsCartOpen(false)}
+              className="w-full py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Continue Shopping
+            </button>
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
+
+====================================================
+FILE: ./src/components/CategoryCard.jsx
+====================================================
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+
+export default function CategoryCard({ category }) {
+  const { id, name, description, icon, badge } = category;
+
+  return (
+    <Link
+      to={`/shop?category=${id}`}
+      className="group block bg-card border border-border rounded-2xl overflow-hidden card-hover"
+    >
+      {/* Gradient top strip */}
+      <div className="h-32 bg-gradient-to-br from-amber-50 via-orange-50/60 to-rose-50/40 flex items-center justify-center relative">
+        <span className="text-5xl filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+          {icon}
+        </span>
+        {badge && (
+          <span className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/90 text-primary-foreground">
+            {badge}
+          </span>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-5">
+        <h3 className="font-semibold text-foreground text-base mb-2 group-hover:text-primary transition-colors">
+          {name}
+        </h3>
+        <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+          {description}
+        </p>
+        <div className="flex items-center gap-1.5 text-sm font-medium text-primary">
+          Shop Now
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+====================================================
+FILE: ./src/components/Footer.jsx
+====================================================
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Leaf, Mail, ArrowRight } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faInstagram,
+  faTiktok,
+  faFacebook,
+  faPinterest,
+} from "@fortawesome/free-brands-svg-icons";
+import toast from "react-hot-toast";
+
+const footerLinks = {
+  Shop: [
+    { label: "Body Butter", to: "/shop?category=body-butter" },
+    { label: "Lotions & Creams", to: "/shop?category=lotions-creams" },
+    { label: "Lip Balm", to: "/shop?category=lip-balm" },
+    { label: "Hand & Foot", to: "/shop?category=hand-foot-cream" },
+    { label: "Face Moisturizers", to: "/shop?category=face-moisturizer" },
+    { label: "Stretch Mark Cream", to: "/shop?category=stretch-mark-cream" },
+  ],
+  Company: [
+    { label: "About DITTO", to: "/about" },
+    { label: "Our Ingredients", to: "/ingredients" },
+    { label: "Sustainability", to: "/about#sustainability" },
+    { label: "Press", to: "/about#press" },
+  ],
+  Support: [
+    { label: "Contact Us", to: "/contact" },
+    { label: "FAQ", to: "/contact#faq" },
+    { label: "Shipping Policy", to: "/contact#shipping" },
+    { label: "Returns", to: "/contact#returns" },
+  ],
+};
+
+const socials = [
+  { icon: faInstagram, label: "Instagram", href: "#" },
+  { icon: faTiktok, label: "TikTok", href: "#" },
+  { icon: faFacebook, label: "Facebook", href: "#" },
+  { icon: faPinterest, label: "Pinterest", href: "#" },
+];
+
+export default function Footer() {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email || !email.includes("@")) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    toast.success("You're subscribed! Welcome to the DITTO family 🌿", {
+      style: {
+        background: "oklch(0.68 0.09 148)",
+        color: "#fff",
+        borderRadius: "12px",
+      },
+    });
+    setEmail("");
+  };
+
+  return (
+    <footer className="bg-foreground text-primary-foreground">
+      {/* Newsletter Banner */}
+      <div className="border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-1">Join the DITTO Community</h3>
+              <p className="text-white/60 text-sm">
+                Get 10% off your first order + skincare tips, new launches, and exclusive offers.
+              </p>
+            </div>
+            <form
+              onSubmit={handleSubscribe}
+              className="flex gap-2 w-full max-w-md"
+            >
+              <div className="flex-1 flex items-center bg-white/10 border border-white/20 rounded-xl px-4">
+                <Mail className="w-4 h-4 text-white/40 mr-2 flex-shrink-0" />
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  className="bg-transparent text-white placeholder-white/40 text-sm py-3 outline-none w-full"
+                />
+              </div>
+              <button
+                type="submit"
+                className="px-4 py-3 bg-primary text-primary-foreground rounded-xl text-sm font-semibold flex items-center gap-1.5 hover:bg-primary/90 transition-colors whitespace-nowrap"
+              >
+                Subscribe <ArrowRight className="w-4 h-4" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Footer */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          {/* Brand Column */}
+          <div className="lg:col-span-2">
+            <Link to="/" className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                <Leaf className="w-4 h-4 text-primary-foreground" />
+              </div>
+              <span className="text-xl font-bold tracking-tight">DITTO</span>
+            </Link>
+            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs">
+              Premium natural skincare for every body. Crafted with ingredients from nature, tested by dermatologists, loved by thousands.
+            </p>
+            {/* Socials */}
+            <div className="flex gap-3">
+              {socials.map(({ icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors"
+                >
+                  <FontAwesomeIcon icon={icon} className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Link Columns */}
+          {Object.entries(footerLinks).map(([group, links]) => (
+            <div key={group}>
+              <h4 className="font-semibold text-sm text-white mb-4">{group}</h4>
+              <ul className="space-y-2.5">
+                {links.map(({ label, to }) => (
+                  <li key={label}>
+                    <Link
+                      to={to}
+                      className="text-sm text-white/55 hover:text-white transition-colors"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-10 mt-10 border-t border-white/10 text-xs text-white/40">
+          <p>© {new Date().getFullYear()} DITTO Skincare. All rights reserved.</p>
+          <div className="flex gap-4">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-white transition-colors">Cookie Settings</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+====================================================
+FILE: ./src/components/Hero.jsx
+====================================================
+import { Link } from "react-router-dom";
+import { ArrowRight, Sparkles } from "lucide-react";
+
+const floatingCards = [
+  { top: "10%", left: "5%", label: "Shea Butter", sub: "Body Butter", delay: "0s", img: "https://picsum.photos/seed/ditto-bb1/120/160" },
+  { top: "55%", left: "2%", label: "Rosehip Oil", sub: "Face Serum", delay: "1.5s", img: "https://picsum.photos/seed/ditto-face/120/160" },
+  { top: "8%", right: "3%", label: "Honey Lip Balm", sub: "Lip Care", delay: "1s", img: "https://picsum.photos/seed/ditto-lip/120/160" },
+  { top: "60%", right: "5%", label: "Body Lotion", sub: "Daily Ritual", delay: "2s", img: "https://picsum.photos/seed/ditto-lotion/120/160" },
+];
+
+export default function Hero() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-ditto-cream to-rose-50/40" />
+      
+      {/* Decorative circles */}
+      <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
+      <div className="absolute bottom-20 right-1/4 w-80 h-80 rounded-full bg-ditto-sage/10 blur-3xl" />
+      <div className="absolute top-1/3 right-1/3 w-64 h-64 rounded-full bg-rose-100/40 blur-2xl" />
+
+      {/* Floating product cards */}
+      {floatingCards.map((card, i) => (
+        <div
+          key={i}
+          className="absolute hidden lg:flex flex-col overflow-hidden rounded-2xl shadow-xl bg-white/80 backdrop-blur-sm border border-white/60 animate-float"
+          style={{
+            top: card.top,
+            left: card.left,
+            right: card.right,
+            width: 120,
+            animationDelay: card.delay,
+          }}
+        >
+          <img
+            src={card.img}
+            alt={card.label}
+            className="w-full h-24 object-cover"
+          />
+          <div className="p-2">
+            <p className="text-xs font-semibold text-foreground leading-tight">{card.label}</p>
+            <p className="text-xs text-muted-foreground">{card.sub}</p>
+          </div>
+        </div>
+      ))}
+
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center pt-24 pb-16">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-6 animate-fade-in-up">
+          <Sparkles className="w-3.5 h-3.5" />
+          100% Natural Ingredients
+        </div>
+
+        {/* Headline */}
+        <h1
+          className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight mb-6 animate-fade-in-up"
+          style={{ animationDelay: "0.1s" }}
+        >
+          Nourish Your{" "}
+          <span className="relative inline-block">
+            <span className="text-primary">Skin</span>
+            <svg
+              className="absolute -bottom-2 left-0 w-full"
+              viewBox="0 0 200 12"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M2 8 Q50 2 100 7 Q150 12 198 6"
+                stroke="oklch(0.75 0.09 42)"
+                strokeWidth="3"
+                fill="none"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>{" "}
+          Naturally
+        </h1>
+
+        {/* Subheadline */}
+        <p
+          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10 animate-fade-in-up"
+          style={{ animationDelay: "0.2s" }}
+        >
+          Discover DITTO&apos;s premium collection of moisturizers for every part of
+          your body — crafted with ingredients you can trust.
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up"
+          style={{ animationDelay: "0.3s" }}
+        >
+          <Link
+            to="/shop"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-2xl text-base font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200"
+          >
+            Shop Best Sellers
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white/80 backdrop-blur-sm text-foreground rounded-2xl text-base font-semibold border border-border hover:bg-white hover:shadow-md transition-all duration-200"
+          >
+            Our Story
+          </Link>
+        </div>
+
+        {/* Stats row */}
+        <div
+          className="flex flex-wrap justify-center gap-8 mt-14 pt-8 border-t border-border/50 animate-fade-in-up"
+          style={{ animationDelay: "0.4s" }}
+        >
+          {[
+            { value: "50K+", label: "Happy Customers" },
+            { value: "6", label: "Product Lines" },
+            { value: "100%", label: "Natural Ingredients" },
+            { value: "4.9★", label: "Avg. Rating" },
+          ].map(({ value, label }) => (
+            <div key={label} className="text-center">
+              <p className="text-2xl font-bold text-primary">{value}</p>
+              <p className="text-sm text-muted-foreground mt-0.5">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom wave */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16">
+          <path d="M0,40 Q360,80 720,40 Q1080,0 1440,40 L1440,80 L0,80 Z" fill="white" fillOpacity="0.5" />
+        </svg>
+      </div>
+    </section>
+  );
+}
+
+====================================================
+FILE: ./src/components/IngredientsSpotlight.jsx
+====================================================
+import { MapPin } from "lucide-react";
+import { ingredients } from "@/data/products";
+
+export default function IngredientsSpotlight() {
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+          <div>
+            <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-4 block">
+              Our Ingredients
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
+              Nature&apos;s Best,{" "}
+              <span className="text-primary">Bottled</span>
+            </h2>
+          </div>
+          <p className="text-muted-foreground max-w-xs lg:text-right">
+            We obsessively source the finest natural actives from ethical suppliers worldwide.
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {ingredients.map((ingredient) => (
+            <div
+              key={ingredient.id}
+              className={`group p-6 rounded-2xl border ${ingredient.color} hover:shadow-md transition-all duration-300 cursor-default`}
+            >
+              <div className="flex items-start gap-4">
+                <span className="text-4xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  {ingredient.emoji}
+                </span>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">{ingredient.name}</h3>
+                  <div className="flex items-center gap-1 mb-2">
+                    <MapPin className="w-3 h-3 text-muted-foreground" />
+                    <span className="text-xs text-muted-foreground">{ingredient.source}</span>
+                  </div>
+                  <p className="text-sm text-foreground/70 leading-relaxed">{ingredient.benefit}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+====================================================
+FILE: ./src/components/Navbar.jsx
+====================================================
+import { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { ShoppingBag, Menu, X, Leaf } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+
+const navLinks = [
+  { to: "/shop", label: "Shop" },
+  { to: "/about", label: "About" },
+  { to: "/ingredients", label: "Ingredients" },
+  { to: "/contact", label: "Contact" },
+];
+
+export default function Navbar() {
+  const { cartCount, setIsCartOpen } = useCart();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-ditto-cream/95 backdrop-blur-md shadow-sm border-b border-border"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+              <Leaf className="w-4 h-4 text-primary-foreground" />
+            </div>
+            <span className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+              DITTO
+            </span>
+          </Link>
+
+          {/* Desktop Nav Links */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors hover:text-primary ${
+                    isActive ? "text-primary" : "text-foreground/70"
+                  }`
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
+          </div>
+
+          {/* Right Side */}
+          <div className="flex items-center gap-3">
+            {/* Cart Button */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-accent transition-colors"
+              aria-label="Open cart"
+            >
+              <ShoppingBag className="w-5 h-5 text-foreground" />
+              {cartCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-primary text-primary-foreground text-xs font-bold rounded-full flex items-center justify-center animate-in zoom-in-50 duration-200">
+                  {cartCount > 9 ? "9+" : cartCount}
+                </span>
+              )}
+            </button>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-accent transition-colors"
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-ditto-cream/98 backdrop-blur-md border-b border-border animate-in slide-in-from-top-2 duration-200">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+            {navLinks.map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `py-3 px-4 rounded-lg text-sm font-medium transition-colors ${
+                    isActive
+                      ? "bg-primary/10 text-primary"
+                      : "text-foreground/70 hover:bg-accent hover:text-foreground"
+                  }`
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
+            <div className="pt-2 border-t border-border mt-2">
+              <Link
+                to="/shop"
+                onClick={() => setMenuOpen(false)}
+                className="block w-full text-center py-3 px-4 bg-primary text-primary-foreground rounded-xl text-sm font-semibold"
+              >
+                Shop Best Sellers
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}
+
+====================================================
+FILE: ./src/components/OilCircuitCanvas.jsx
+====================================================
+import React, { useRef, useEffect, useState, useCallback } from "react";
+
+// Oil drop class
+class OilDrop {
+  constructor(x, y, containerWidth, containerX) {
+    this.x = x;
+    this.y = y;
+    this.radius = 4 + Math.random() * 6; // Varied drop sizes
+    this.velocityY = 0.5 + Math.random() * 1.5;
+    this.velocityX = (Math.random() - 0.5) * 0.5; // Slight horizontal drift
+    this.stretch = 1;
+    this.stretchFactor = 0.15;
+    this.maxStretch = 1.4;
+    this.opacity = 0.9;
+    this.hitSurface = false;
+    this.containerWidth = containerWidth;
+    this.containerX = containerX;
+    this.originalRadius = this.radius;
+  }
+
+  update(gravity, oilLevel, canvasHeight, containerY, containerHeight) {
+    // Apply gravity
+    this.velocityY += gravity;
+    this.y += this.velocityY;
+    this.x += this.velocityX;
+
+    // Calculate stretch based on velocity
+    this.stretch =
+      1 + Math.min(this.velocityY * this.stretchFactor, this.maxStretch - 1);
+
+    // Check if drop hits oil surface
+    const oilSurfaceY = canvasHeight - containerY - oilLevel * containerHeight;
+
+    if (!this.hitSurface && this.y + this.radius >= oilSurfaceY) {
+      this.hitSurface = true;
+      return true; // Indicates hit for ripple effect
+    }
+
+    return false;
+  }
+
+  draw(ctx) {
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.scale(1, this.stretch);
+
+    // Create gradient for glossy oil effect
+    const gradient = ctx.createRadialGradient(
+      -this.radius * 0.3,
+      -this.radius * 0.3,
+      0,
+      0,
+      0,
+      this.radius * 1.2,
+    );
+    gradient.addColorStop(0, "#F4D03F"); // Light gold highlight
+    gradient.addColorStop(0.4, "#C2A64A"); // Main oil color
+    gradient.addColorStop(1, "#8B6B3C"); // Dark oil shadow
+
+    ctx.beginPath();
+    ctx.ellipse(0, 0, this.radius, this.radius, 0, 0, Math.PI * 2);
+    ctx.fillStyle = gradient;
+    ctx.fill();
+
+    // Add specular highlight
+    ctx.beginPath();
+    ctx.ellipse(
+      -this.radius * 0.3,
+      -this.radius * 0.3,
+      this.radius * 0.2,
+      this.radius * 0.1,
+      0,
+      0,
+      Math.PI * 2,
+    );
+    ctx.fillStyle = "rgba(255, 255, 240, 0.6)";
+    ctx.fill();
+
+    ctx.restore();
+  }
+}
+
+// Ripple class for surface effects
+class Ripple {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.radius = 5;
+    this.maxRadius = 40;
+    this.opacity = 0.7;
+  }
+
+  update() {
+    this.radius += 1.5;
+    this.opacity *= 0.97;
+    return this.opacity > 0.05;
+  }
+
+  draw(ctx) {
+    ctx.beginPath();
+    ctx.ellipse(
+      this.x,
+      this.y,
+      this.radius,
+      this.radius * 0.3,
+      0,
+      0,
+      Math.PI * 2,
+    );
+    ctx.strokeStyle = `rgba(255, 240, 200, ${this.opacity})`;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+}
+
+const DittoCanvas = () => {
+  const canvasRef = useRef(null);
+  const animationRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  const drawCylinder = useCallback((ctx, x, y, width, height, oilLevel) => {
+    const radius = width / 2;
+    const bottomY = y + height;
+    const oilSurfaceY = bottomY - oilLevel * height;
+
+    // Draw glass cylinder (transparent)
+    ctx.save();
+
+    // Glass outline
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.3)";
+    ctx.lineWidth = 2;
+
+    // Left and right edges
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x, bottomY);
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(x + width, y);
+    ctx.lineTo(x + width, bottomY);
+    ctx.stroke();
+
+    // Top ellipse (glass rim)
+    ctx.beginPath();
+    ctx.ellipse(x + radius, y, radius, 15, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
+    ctx.stroke();
+
+    // Bottom ellipse (base)
+    ctx.beginPath();
+    ctx.ellipse(x + radius, bottomY, radius, 10, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.3)";
+    ctx.stroke();
+
+    // Glass highlight
+    ctx.beginPath();
+    ctx.ellipse(x + radius - 10, y + 20, 5, 15, 0, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
+    ctx.fill();
+
+    // Draw oil
+    if (oilLevel > 0) {
+      // Main oil body
+      ctx.beginPath();
+      ctx.rect(x, oilSurfaceY, width, height * oilLevel);
+
+      // Oil gradient
+      const oilGradient = ctx.createLinearGradient(
+        x,
+        oilSurfaceY,
+        x + width,
+        bottomY,
+      );
+      oilGradient.addColorStop(0, "#C2A64A");
+      oilGradient.addColorStop(0.6, "#A67B3C");
+      oilGradient.addColorStop(1, "#6B4F2A");
+
+      ctx.fillStyle = oilGradient;
+      ctx.globalAlpha = 0.9;
+      ctx.fill();
+
+      // Oil surface (rounded top)
+      ctx.beginPath();
+      ctx.ellipse(x + radius, oilSurfaceY, radius - 2, 8, 0, 0, Math.PI * 2);
+      ctx.fillStyle = "#F4D03F";
+      ctx.globalAlpha = 0.6;
+      ctx.fill();
+
+      // Surface highlight
+      ctx.beginPath();
+      ctx.ellipse(x + radius - 20, oilSurfaceY - 4, 20, 4, 0, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255, 255, 200, 0.4)";
+      ctx.fill();
+    }
+
+    ctx.restore();
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    let drops = [];
+    let ripples = [];
+    let oilLevel = 0.1; // Starting oil level (10% full)
+    let frameCount = 0;
+
+    // Container dimensions (centered)
+    let containerWidth, containerHeight, containerX, containerY;
+
+    const resizeCanvas = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      setDimensions({ width, height });
+
+      canvas.width = width;
+      canvas.height = height;
+
+      // Update container dimensions
+      containerWidth = Math.min(400, width * 0.4);
+      containerHeight = Math.min(500, height * 0.6);
+      containerX = (width - containerWidth) / 2;
+      containerY = height - containerHeight - 50;
+    };
+
+    const createDrop = () => {
+      const x =
+        containerX +
+        Math.random() * containerWidth * 0.6 +
+        containerWidth * 0.2;
+      const y = 20; // Start near top
+      return new OilDrop(x, y, containerWidth, containerX);
+    };
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Dark background
+      ctx.fillStyle = "#1A120B";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw container
+      drawCylinder(
+        ctx,
+        containerX,
+        containerY,
+        containerWidth,
+        containerHeight,
+        oilLevel,
+      );
+
+      // Update and draw ripples
+      ripples = ripples.filter((ripple) => {
+        if (ripple.update()) {
+          ripple.draw(ctx);
+          return true;
+        }
+        return false;
+      });
+
+      // Create new drops periodically
+      if (frameCount % 20 === 0 && drops.length < 30) {
+        drops.push(createDrop());
+      }
+
+      // Update and draw drops
+      drops = drops.filter((drop) => {
+        const hit = drop.update(
+          0.15,
+          oilLevel,
+          canvas.height,
+          containerY,
+          containerHeight,
+        );
+
+        // Check if drop hit surface
+        if (hit) {
+          const surfaceY =
+            canvas.height - containerY - oilLevel * containerHeight;
+          ripples.push(new Ripple(drop.x, surfaceY));
+          oilLevel = Math.min(oilLevel + 0.005, 0.95); // Increase oil level, max 95%
+        }
+
+        // Remove drops that go below container
+        const belowContainer = drop.y > canvas.height + 50;
+
+        if (!belowContainer && !drop.hitSurface) {
+          drop.draw(ctx);
+          return true;
+        }
+        return false;
+      });
+
+      frameCount++;
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    // Initialize
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Start animation
+    animate();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [drawCylinder]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        display: "block",
+        zIndex: -1,
+        backgroundColor: "#1A120B",
+      }}
+      width={dimensions.width}
+      height={dimensions.height}
+    />
+  );
+};
+
+export default DittoCanvas;
+
+====================================================
+FILE: ./src/components/ProductCard.jsx
+====================================================
+import { ShoppingBag, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useCart } from "@/context/CartContext";
+
+function StarRating({ rating }) {
+  return (
+    <div className="flex items-center gap-0.5">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <Star
+          key={star}
+          className={`w-3.5 h-3.5 ${
+            star <= Math.floor(rating)
+              ? "fill-amber-400 text-amber-400"
+              : star - 0.5 <= rating
+              ? "fill-amber-200 text-amber-400"
+              : "fill-muted text-muted"
+          }`}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default function ProductCard({ product }) {
+  const { addToCart } = useCart();
+  const { id, name, price, image, rating, reviews, tag, description } = product;
+
+  return (
+    <div className="group bg-card border border-border rounded-2xl overflow-hidden card-hover flex flex-col">
+      {/* Image */}
+      <Link to={`/product/${id}`} className="block relative overflow-hidden bg-accent/30 aspect-[4/5]">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        {tag && (
+          <span className="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full bg-primary text-primary-foreground shadow-sm">
+            {tag}
+          </span>
+        )}
+      </Link>
+
+      {/* Info */}
+      <div className="p-4 flex flex-col flex-1">
+        <Link to={`/product/${id}`}>
+          <h3 className="font-semibold text-foreground text-sm leading-snug mb-1 hover:text-primary transition-colors line-clamp-2">
+            {name}
+          </h3>
+        </Link>
+        <p className="text-xs text-muted-foreground leading-relaxed mb-3 line-clamp-2 flex-1">
+          {description}
+        </p>
+
+        {/* Rating */}
+        <div className="flex items-center gap-1.5 mb-3">
+          <StarRating rating={rating} />
+          <span className="text-xs text-muted-foreground">
+            {rating} ({reviews})
+          </span>
+        </div>
+
+        {/* Price + CTA */}
+        <div className="flex items-center justify-between mt-auto">
+          <span className="text-base font-bold text-foreground">
+            ${price.toFixed(2)}
+          </span>
+          <button
+            onClick={() => addToCart(product)}
+            className="flex items-center gap-1.5 px-3 py-2 bg-primary text-primary-foreground text-xs font-semibold rounded-xl hover:bg-primary/90 active:scale-95 transition-all duration-150 shadow-sm"
+          >
+            <ShoppingBag className="w-3.5 h-3.5" />
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+====================================================
+FILE: ./src/components/Testimonials.jsx
+====================================================
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
+import { testimonials } from "@/data/products";
+
+function StarRow({ rating }) {
+  return (
+    <div className="flex gap-0.5">
+      {[1, 2, 3, 4, 5].map((s) => (
+        <Star
+          key={s}
+          className={`w-4 h-4 ${s <= rating ? "fill-amber-400 text-amber-400" : "fill-muted text-muted"}`}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default function Testimonials() {
+  const [current, setCurrent] = useState(0);
+
+  const prev = () => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
+  const next = () => setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+
+  const t = testimonials[current];
+
+  return (
+    <section className="py-24 bg-gradient-to-b from-ditto-cream/50 to-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-4 block">
+            Real Reviews
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
+            Loved by{" "}
+            <span className="text-primary">Thousands</span>
+          </h2>
+        </div>
+
+        {/* Featured testimonial */}
+        <div className="max-w-3xl mx-auto">
+          <div className="relative bg-card border border-border rounded-3xl p-8 sm:p-12 shadow-sm">
+            {/* Quote icon */}
+            <div className="absolute -top-5 left-10 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg">
+              <Quote className="w-5 h-5 text-primary-foreground fill-primary-foreground" />
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-6 items-start">
+              {/* Avatar */}
+              <img
+                src={t.avatar}
+                alt={t.name}
+                className="w-16 h-16 rounded-full object-cover border-2 border-primary/20 flex-shrink-0"
+              />
+
+              <div className="flex-1">
+                <StarRow rating={t.rating} />
+                <p className="text-foreground text-lg leading-relaxed mt-3 mb-4 italic">
+                  &ldquo;{t.review}&rdquo;
+                </p>
+                <div>
+                  <p className="font-semibold text-foreground">{t.name}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t.location} · {t.date}
+                  </p>
+                  <p className="text-xs text-primary mt-1 font-medium">
+                    Verified purchase: {t.product}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <button
+              onClick={prev}
+              className="w-10 h-10 rounded-full border border-border bg-card hover:bg-accent hover:border-primary/30 flex items-center justify-center transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            {/* Dots */}
+            <div className="flex gap-2">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    i === current ? "w-6 bg-primary" : "w-2 bg-border"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={next}
+              className="w-10 h-10 rounded-full border border-border bg-card hover:bg-accent hover:border-primary/30 flex items-center justify-center transition-colors"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* Mini testimonial cards row */}
+        <div className="hidden lg:grid grid-cols-5 gap-4 mt-12">
+          {testimonials.map((item, i) => (
+            <button
+              key={item.id}
+              onClick={() => setCurrent(i)}
+              className={`p-4 rounded-2xl border text-left transition-all duration-200 ${
+                i === current
+                  ? "border-primary bg-primary/5 shadow-sm"
+                  : "border-border bg-card hover:border-primary/30"
+              }`}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <img
+                  src={item.avatar}
+                  alt={item.name}
+                  className="w-8 h-8 rounded-full object-cover"
+                />
+                <div>
+                  <p className="text-xs font-semibold text-foreground truncate">{item.name}</p>
+                  <StarRow rating={item.rating} />
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                {item.review.substring(0, 60)}...
+              </p>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+====================================================
+FILE: ./src/components/ui/button.jsx
+====================================================
+import * as React from "react"
+import { cva } from "class-variance-authority";
+import { Slot } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+        outline:
+          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+        ghost:
+          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+        destructive:
+          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default:
+          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
+        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3",
+        icon: "size-8",
+        "icon-xs":
+          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm":
+          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
+        "icon-lg": "size-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+)
+
+function Button({
+  className,
+  variant = "default",
+  size = "default",
+  asChild = false,
+  ...props
+}) {
+  const Comp = asChild ? Slot.Root : "button"
+
+  return (
+    <Comp
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props} />
+  );
+}
+
+export { Button, buttonVariants }
+
+====================================================
+FILE: ./src/components/ui/dialog.jsx
+====================================================
+import * as React from "react"
+import { Dialog as DialogPrimitive } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { XIcon } from "lucide-react"
+
+function Dialog({
+  ...props
+}) {
+  return <DialogPrimitive.Root data-slot="dialog" {...props} />;
+}
+
+function DialogTrigger({
+  ...props
+}) {
+  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
+}
+
+function DialogPortal({
+  ...props
+}) {
+  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
+}
+
+function DialogClose({
+  ...props
+}) {
+  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
+}
+
+function DialogOverlay({
+  className,
+  ...props
+}) {
+  return (
+    <DialogPrimitive.Overlay
+      data-slot="dialog-overlay"
+      className={cn(
+        "fixed inset-0 isolate z-50 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        className
+      )}
+      {...props} />
+  );
+}
+
+function DialogContent({
+  className,
+  children,
+  showCloseButton = true,
+  ...props
+}) {
+  return (
+    <DialogPortal>
+      <DialogOverlay />
+      <DialogPrimitive.Content
+        data-slot="dialog-content"
+        className={cn(
+          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-background p-4 text-sm ring-1 ring-foreground/10 duration-100 outline-none sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          className
+        )}
+        {...props}>
+        {children}
+        {showCloseButton && (
+          <DialogPrimitive.Close data-slot="dialog-close" asChild>
+            <Button variant="ghost" className="absolute top-2 right-2" size="icon-sm">
+              <XIcon />
+              <span className="sr-only">Close</span>
+            </Button>
+          </DialogPrimitive.Close>
+        )}
+      </DialogPrimitive.Content>
+    </DialogPortal>
+  );
+}
+
+function DialogHeader({
+  className,
+  ...props
+}) {
+  return (
+    <div
+      data-slot="dialog-header"
+      className={cn("flex flex-col gap-2", className)}
+      {...props} />
+  );
+}
+
+function DialogFooter({
+  className,
+  showCloseButton = false,
+  children,
+  ...props
+}) {
+  return (
+    <div
+      data-slot="dialog-footer"
+      className={cn(
+        "-mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t bg-muted/50 p-4 sm:flex-row sm:justify-end",
+        className
+      )}
+      {...props}>
+      {children}
+      {showCloseButton && (
+        <DialogPrimitive.Close asChild>
+          <Button variant="outline">Close</Button>
+        </DialogPrimitive.Close>
+      )}
+    </div>
+  );
+}
+
+function DialogTitle({
+  className,
+  ...props
+}) {
+  return (
+    <DialogPrimitive.Title
+      data-slot="dialog-title"
+      className={cn("text-base leading-none font-medium", className)}
+      {...props} />
+  );
+}
+
+function DialogDescription({
+  className,
+  ...props
+}) {
+  return (
+    <DialogPrimitive.Description
+      data-slot="dialog-description"
+      className={cn(
+        "text-sm text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground",
+        className
+      )}
+      {...props} />
+  );
+}
+
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+}
+
+====================================================
+FILE: ./src/context/CartContext.jsx
+====================================================
+// CartContext.jsx
+import { createContext, useContext, useState, useCallback } from "react";
+import toast from "react-hot-toast";
+
+const CartContext = createContext(null);
+
+export function CartProvider({ children }) {
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const addToCart = useCallback((product) => {
+    setCartItems((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
+      if (existing) {
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+        );
+      }
+      return [...prev, { ...product, qty: 1 }];
+    });
+    toast.success(`${product.name} added to cart!`, {
+      style: {
+        background: "oklch(0.57 0.13 42)",
+        color: "#fff",
+        borderRadius: "12px",
+        fontFamily: "'Geist Variable', sans-serif",
+      },
+      iconTheme: { primary: "#fff", secondary: "oklch(0.57 0.13 42)" },
+    });
+  }, []);
+
+  const removeFromCart = useCallback((productId) => {
+    setCartItems((prev) => prev.filter((item) => item.id !== productId));
+  }, []);
+
+  const updateQty = useCallback((productId, qty) => {
+    if (qty < 1) return;
+    setCartItems((prev) =>
+      prev.map((item) => (item.id === productId ? { ...item, qty } : item))
+    );
+  }, []);
+
+  const clearCart = useCallback(() => setCartItems([]), []);
+
+  const cartCount = cartItems.reduce((sum, item) => sum + item.qty, 0);
+  const cartTotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.qty,
+    0
+  );
+
+  return (
+    <CartContext.Provider
+      value={{
+        cartItems,
+        cartCount,
+        cartTotal,
+        isCartOpen,
+        setIsCartOpen,
+        addToCart,
+        removeFromCart,
+        updateQty,
+        clearCart,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+}
+
+export function useCart() {
+  const ctx = useContext(CartContext);
+  if (!ctx) throw new Error("useCart must be used inside CartProvider");
+  return ctx;
+}
+
+====================================================
+FILE: ./src/data/products.js
+====================================================
+export const categories = [
+  {
+    id: "body-butter",
+    name: "Body Butter",
+    description: "Thick, luxurious moisturizing cream that melts into dry skin for all-day hydration.",
+    icon: "🫧",
+    color: "from-amber-50 to-orange-50",
+    accent: "text-orange-700",
+    badge: "Best Seller",
+  },
+  {
+    id: "lotions-creams",
+    name: "Lotions & Creams",
+    description: "Blended with nourishing oils and natural fragrances for your daily skincare ritual.",
+    icon: "✨",
+    color: "from-rose-50 to-pink-50",
+    accent: "text-rose-700",
+    badge: "New Arrival",
+  },
+  {
+    id: "lip-balm",
+    name: "Lip Balm",
+    description: "Protective barrier formula that seals in moisture and keeps lips soft in any weather.",
+    icon: "💋",
+    color: "from-red-50 to-rose-50",
+    accent: "text-red-700",
+    badge: null,
+  },
+  {
+    id: "hand-foot-cream",
+    name: "Hand & Foot Creams",
+    description: "Intensive repair formula — proven effective on stubborn cracked heels and rough hands.",
+    icon: "🤲",
+    color: "from-yellow-50 to-amber-50",
+    accent: "text-amber-700",
+    badge: null,
+  },
+  {
+    id: "face-moisturizer",
+    name: "Face Moisturizers",
+    description: "Gentle, clinically-tested formulas made with natural actives for your daily glow.",
+    icon: "🌸",
+    color: "from-green-50 to-emerald-50",
+    accent: "text-emerald-700",
+    badge: "Fan Favorite",
+  },
+  {
+    id: "stretch-mark-cream",
+    name: "Stretch Mark Cream",
+    description: "Specially formulated to support skin elasticity — a trusted choice during pregnancy.",
+    icon: "🌿",
+    color: "from-teal-50 to-cyan-50",
+    accent: "text-teal-700",
+    badge: "Pregnancy Safe",
+  },
+];
+
+export const products = [
+  {
+    id: 1,
+    name: "Whipped Shea Body Butter",
+    category: "body-butter",
+    description: "Cloud-like whipped body butter infused with raw shea, mango butter, and argan oil. Absorbs beautifully without grease.",
+    price: 24.99,
+    image: "https://picsum.photos/seed/ditto-bb1/400/500",
+    rating: 4.8,
+    reviews: 234,
+    featured: true,
+    tag: "Best Seller",
+    ingredients: ["Shea Butter", "Mango Butter", "Argan Oil", "Vitamin E"],
+  },
+  {
+    id: 2,
+    name: "Rose & Jasmine Body Lotion",
+    category: "lotions-creams",
+    description: "A silky daily lotion with real rose water, jasmine extract, and sweet almond oil. Your skin will thank you.",
+    price: 19.99,
+    image: "https://picsum.photos/seed/ditto-lotion/400/500",
+    rating: 4.7,
+    reviews: 189,
+    featured: true,
+    tag: "New",
+    ingredients: ["Rose Water", "Jasmine Extract", "Sweet Almond Oil"],
+  },
+  {
+    id: 3,
+    name: "Honey & Vanilla Lip Balm",
+    category: "lip-balm",
+    description: "A kissable blend of beeswax, raw honey, and vanilla butter. Soothes and protects against harsh conditions.",
+    price: 8.99,
+    image: "https://picsum.photos/seed/ditto-lip/400/500",
+    rating: 4.9,
+    reviews: 412,
+    featured: true,
+    tag: "Fan Favorite",
+    ingredients: ["Beeswax", "Raw Honey", "Vanilla Butter", "Vitamin E"],
+  },
+  {
+    id: 4,
+    name: "Intensive Repair Hand Cream",
+    category: "hand-foot-cream",
+    description: "Fast-absorbing formula with urea, glycerin, and macadamia oil to visibly heal cracked skin overnight.",
+    price: 14.99,
+    image: "https://picsum.photos/seed/ditto-hand/400/500",
+    rating: 4.6,
+    reviews: 167,
+    featured: true,
+    tag: null,
+    ingredients: ["Urea", "Glycerin", "Macadamia Oil", "Allantoin"],
+  },
+  {
+    id: 5,
+    name: "Radiance Face Moisturizer",
+    category: "face-moisturizer",
+    description: "Lightweight gel-cream with hyaluronic acid, niacinamide, and rosehip oil for a natural, luminous complexion.",
+    price: 34.99,
+    image: "https://picsum.photos/seed/ditto-face/400/500",
+    rating: 4.8,
+    reviews: 298,
+    featured: true,
+    tag: "Premium",
+    ingredients: ["Hyaluronic Acid", "Niacinamide", "Rosehip Oil", "Green Tea"],
+  },
+  {
+    id: 6,
+    name: "Belly & Beyond Stretch Cream",
+    category: "stretch-mark-cream",
+    description: "Dermatologist-tested stretch mark cream with centella asiatica, cocoa butter, and vitamin C. Pregnancy-safe.",
+    price: 29.99,
+    image: "https://picsum.photos/seed/ditto-stretch/400/500",
+    rating: 4.9,
+    reviews: 521,
+    featured: false,
+    tag: "Pregnancy Safe",
+    ingredients: ["Centella Asiatica", "Cocoa Butter", "Vitamin C", "Collagen Peptides"],
+  },
+  {
+    id: 7,
+    name: "Coconut Dream Body Butter",
+    category: "body-butter",
+    description: "A tropical escape in a jar — whipped coconut oil and shea butter with a hint of lime zest.",
+    price: 22.99,
+    image: "https://picsum.photos/seed/ditto-coco/400/500",
+    rating: 4.7,
+    reviews: 143,
+    featured: false,
+    tag: null,
+    ingredients: ["Coconut Oil", "Shea Butter", "Lime Extract", "Vitamin E"],
+  },
+  {
+    id: 8,
+    name: "Cracked Heel Rescue Balm",
+    category: "hand-foot-cream",
+    description: "Thick, healing balm with salicylic acid and shea butter that visibly smooths rough heels in 3 days.",
+    price: 16.99,
+    image: "https://picsum.photos/seed/ditto-heel/400/500",
+    rating: 4.5,
+    reviews: 203,
+    featured: false,
+    tag: "Quick Fix",
+    ingredients: ["Salicylic Acid", "Shea Butter", "Tea Tree Oil", "Peppermint"],
+  },
+];
+
+export const ingredients = [
+  {
+    id: 1,
+    name: "Raw Shea Butter",
+    benefit: "Deeply nourishes and repairs the skin barrier with essential fatty acids and vitamins A, E & F.",
+    source: "West Africa",
+    emoji: "🌰",
+    color: "bg-amber-50 border-amber-200",
+  },
+  {
+    id: 2,
+    name: "Hyaluronic Acid",
+    benefit: "Holds up to 1,000x its weight in water — plumps and hydrates at every layer of the skin.",
+    source: "Biotechnology",
+    emoji: "💧",
+    color: "bg-blue-50 border-blue-200",
+  },
+  {
+    id: 3,
+    name: "Rosehip Oil",
+    benefit: "Rich in vitamin C and retinoids, it visibly reduces dark spots and boosts natural radiance.",
+    source: "Chile & Peru",
+    emoji: "🌹",
+    color: "bg-rose-50 border-rose-200",
+  },
+  {
+    id: 4,
+    name: "Centella Asiatica",
+    benefit: "Ancient healing herb that accelerates skin regeneration and soothes inflammation.",
+    source: "Southeast Asia",
+    emoji: "🌿",
+    color: "bg-green-50 border-green-200",
+  },
+  {
+    id: 5,
+    name: "Argan Oil",
+    benefit: "Liquid gold rich in oleic acid that restores elasticity and protects against environmental damage.",
+    source: "Morocco",
+    emoji: "✨",
+    color: "bg-yellow-50 border-yellow-200",
+  },
+  {
+    id: 6,
+    name: "Niacinamide",
+    benefit: "Minimizes pores, evens skin tone, and strengthens the natural skin barrier.",
+    source: "Vitamin B3",
+    emoji: "🔬",
+    color: "bg-purple-50 border-purple-200",
+  },
+];
+
+export const testimonials = [
+  {
+    id: 1,
+    name: "Amara K.",
+    location: "Lagos, Nigeria",
+    rating: 5,
+    review: "The Whipped Shea Body Butter has completely transformed my skin. I have very dry skin and nothing worked until I found DITTO. My skin stays moisturized all day long even in the dry harmattan season!",
+    product: "Whipped Shea Body Butter",
+    avatar: "https://picsum.photos/seed/amara/80/80",
+    date: "2 weeks ago",
+  },
+  {
+    id: 2,
+    name: "Priya M.",
+    location: "Nairobi, Kenya",
+    rating: 5,
+    review: "I've been using the Radiance Face Moisturizer for 3 months now and my skin has never looked better. It's light, non-greasy, and my colleagues keep asking what I'm doing differently!",
+    product: "Radiance Face Moisturizer",
+    avatar: "https://picsum.photos/seed/priya/80/80",
+    date: "1 month ago",
+  },
+  {
+    id: 3,
+    name: "Sarah T.",
+    location: "London, UK",
+    rating: 5,
+    review: "As someone who is pregnant, finding safe skincare is so stressful. The Belly & Beyond Stretch Cream is pregnancy-safe, smells divine, and my bump is so soft. I genuinely love this brand.",
+    product: "Belly & Beyond Stretch Cream",
+    avatar: "https://picsum.photos/seed/sarah/80/80",
+    date: "3 weeks ago",
+  },
+  {
+    id: 4,
+    name: "Fatima A.",
+    location: "Dubai, UAE",
+    rating: 5,
+    review: "The Honey & Vanilla Lip Balm is the only one I'll ever use. I buy 5 at a time because I'm scared of running out. It's that good. My lips have never been this soft.",
+    product: "Honey & Vanilla Lip Balm",
+    avatar: "https://picsum.photos/seed/fatima/80/80",
+    date: "1 week ago",
+  },
+  {
+    id: 5,
+    name: "Joy O.",
+    location: "Accra, Ghana",
+    rating: 5,
+    review: "The Cracked Heel Rescue Balm worked in literally 3 days. I had been struggling with dry heels for years and every other product failed. DITTO is a game changer — natural AND effective!",
+    product: "Cracked Heel Rescue Balm",
+    avatar: "https://picsum.photos/seed/joy/80/80",
+    date: "5 days ago",
+  },
+];
+
+====================================================
+FILE: ./src/index.css
+====================================================
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.809 0.105 251.813);
+    --chart-2: oklch(0.623 0.214 259.815);
+    --chart-3: oklch(0.546 0.245 262.881);
+    --chart-4: oklch(0.488 0.243 264.376);
+    --chart-5: oklch(0.424 0.199 265.638);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.809 0.105 251.813);
+    --chart-2: oklch(0.623 0.214 259.815);
+    --chart-3: oklch(0.546 0.245 262.881);
+    --chart-4: oklch(0.488 0.243 264.376);
+    --chart-5: oklch(0.424 0.199 265.638);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@theme inline {
+    --font-sans: 'Geist Variable', sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+====================================================
+FILE: ./src/layout/MainLayout.jsx
+====================================================
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import CartSidebar from "@/components/CartSidebar";
+import OilCanvas from "@/components/OilCircuitCanvas";
+
+export default function MainLayout() {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <DittoCanvas/>
+      <Navbar />
+      <div className="flex-1">
+        <Outlet /> {/* Nested routes render here */}
+      </div>
+      <Footer />
+      <CartSidebar />
+    </div>
+  );
+}
+
+====================================================
+FILE: ./src/lib/utils.js
+====================================================
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
+
+====================================================
+FILE: ./src/main.jsx
+====================================================
+// main.jsx
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import { CartProvider } from "@/context/CartContext";
+import "./index.css";
+import { router } from "./router.jsx";
+
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <CartProvider>
+      <RouterProvider router={router} />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            fontFamily: "'Geist Variable', sans-serif",
+            fontSize: "14px",
+            borderRadius: "12px",
+          },
+        }}
+      />
+    </CartProvider>
+  </StrictMode>,
+);
+====================================================
+FILE: ./src/pages/About.jsx
+====================================================
+import { Leaf, Heart, Globe, Award } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const milestones = [
+  { year: "2018", event: "DITTO was founded in a small kitchen with a single body butter recipe." },
+  { year: "2020", event: "Expanded to 6 product lines after overwhelming customer demand." },
+  { year: "2022", event: "Achieved cruelty-free certification and launched sustainable packaging." },
+  { year: "2024", event: "Reached 50,000+ happy customers across 30+ countries." },
+];
+
+const team = [
+  { name: "Amara Osei", role: "Founder & CEO", img: "https://picsum.photos/seed/team1/200/200" },
+  { name: "Dr. Priya Rao", role: "Head of Formulation", img: "https://picsum.photos/seed/team2/200/200" },
+  { name: "Zara Ahmed", role: "Creative Director", img: "https://picsum.photos/seed/team3/200/200" },
+];
+
+export default function About() {
+  return (
+    <main className="min-h-screen">
+      {/* Hero */}
+      <div className="bg-gradient-to-br from-amber-50 via-ditto-cream to-rose-50/40 pt-28 pb-20 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-4 block">
+            Our Story
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight mb-5">
+            Skincare Born From{" "}
+            <span className="text-primary">Nature & Necessity</span>
+          </h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            DITTO was created by someone who couldn&apos;t find skincare that worked — so she made her own. Today, we share those formulas with the world.
+          </p>
+        </div>
+      </div>
+
+      {/* Mission */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-4 block">
+                Our Mission
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 tracking-tight">
+                Making Natural Skincare Accessible to Everyone
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-5">
+                We believe beautiful skin shouldn&apos;t require a chemistry degree or a luxury budget. DITTO was built on the idea that the best ingredients come from nature — and nature doesn&apos;t charge a premium.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                Every product is crafted in small batches, dermatologist-tested, and made without the nasties you&apos;ll find in conventional skincare. We&apos;re not trying to be the biggest brand — we&apos;re trying to be the best one for you.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: Leaf, label: "100% Natural", color: "text-ditto-sage bg-ditto-sage-light" },
+                  { icon: Heart, label: "Cruelty-Free", color: "text-rose-600 bg-rose-50" },
+                  { icon: Globe, label: "Sustainably Sourced", color: "text-emerald-600 bg-emerald-50" },
+                  { icon: Award, label: "Derm Tested", color: "text-blue-600 bg-blue-50" },
+                ].map(({ icon: Icon, label, color }) => (
+                  <div key={label} className={`flex items-center gap-3 p-3 rounded-xl ${color.split(" ")[1]}`}>
+                    <Icon className={`w-5 h-5 ${color.split(" ")[0]}`} />
+                    <span className="text-sm font-medium text-foreground">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-3xl overflow-hidden aspect-square bg-accent">
+              <img
+                src="https://picsum.photos/seed/about-hero/600/600"
+                alt="DITTO founder in lab"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="py-20 bg-ditto-cream/40">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-3 block">
+              Our Journey
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
+              From Kitchen to <span className="text-primary">50K Customers</span>
+            </h2>
+          </div>
+          <div className="space-y-6">
+            {milestones.map(({ year, event }, i) => (
+              <div key={year} className="flex gap-6 items-start">
+                <div className="flex-shrink-0 flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-md">
+                    <span className="text-xs font-bold text-primary-foreground">{year}</span>
+                  </div>
+                  {i < milestones.length - 1 && (
+                    <div className="w-0.5 h-10 bg-border mt-2" />
+                  )}
+                </div>
+                <div className="pt-2.5">
+                  <p className="text-foreground leading-relaxed">{event}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-3 block">
+            Our Team
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-12 tracking-tight">
+            The Humans Behind <span className="text-primary">DITTO</span>
+          </h2>
+          <div className="flex flex-wrap justify-center gap-8">
+            {team.map(({ name, role, img }) => (
+              <div key={name} className="flex flex-col items-center gap-3">
+                <img
+                  src={img}
+                  alt={name}
+                  className="w-32 h-32 rounded-full object-cover border-4 border-primary/20"
+                />
+                <div>
+                  <p className="font-semibold text-foreground">{name}</p>
+                  <p className="text-sm text-muted-foreground">{role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-primary text-center">
+        <div className="max-w-2xl mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">
+            Ready to Meet Your New Skincare Ritual?
+          </h2>
+          <p className="text-primary-foreground/70 mb-8">
+            Explore our full collection and find your perfect match.
+          </p>
+          <Link
+            to="/shop"
+            className="inline-block px-8 py-4 bg-primary-foreground text-primary rounded-2xl font-semibold hover:bg-white transition-colors"
+          >
+            Shop Now
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+====================================================
+FILE: ./src/pages/Contact.jsx
+====================================================
+import { useState } from "react";
+import { Mail, Phone, MapPin, ChevronDown, Send } from "lucide-react";
+import toast from "react-hot-toast";
+
+const faqs = [
+  {
+    q: "Are all DITTO products safe for sensitive skin?",
+    a: "Yes! All our products are dermatologist-tested and formulated to be gentle on sensitive skin. We avoid common irritants like parabens, sulfates, and artificial fragrances.",
+  },
+  {
+    q: "Are your products safe to use during pregnancy?",
+    a: "Our Belly & Beyond Stretch Mark Cream is specifically formulated to be pregnancy-safe. For other products, we recommend checking with your healthcare provider. We avoid retinoids and salicylic acid in our pregnancy-safe line.",
+  },
+  {
+    q: "What's your shipping policy?",
+    a: "We offer free standard shipping on all orders over $50. Orders typically ship within 1-2 business days and arrive in 5-7 business days for standard shipping.",
+  },
+  {
+    q: "Do you ship internationally?",
+    a: "Yes! We ship to over 30 countries. International shipping rates and times vary by destination. Orders over $75 qualify for free international shipping.",
+  },
+  {
+    q: "What is your return policy?",
+    a: "We offer a 30-day satisfaction guarantee. If you're not happy with your product for any reason, contact us and we'll make it right — exchange, store credit, or full refund.",
+  },
+  {
+    q: "Are your products tested on animals?",
+    a: "Never. DITTO is proudly cruelty-free and certified by Leaping Bunny. We will never test on animals, and neither do our ingredient suppliers.",
+  },
+];
+
+function FAQItem({ q, a }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-border rounded-2xl overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-accent/50 transition-colors"
+      >
+        <span className="font-medium text-foreground text-sm">{q}</span>
+        <ChevronDown
+          className={`w-4 h-4 text-muted-foreground flex-shrink-0 transition-transform duration-200 ${
+            open ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {open && (
+        <div className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed border-t border-border bg-accent/20">
+          <div className="pt-4">{a}</div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.message) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+    setSending(true);
+    await new Promise((r) => setTimeout(r, 1200));
+    setSending(false);
+    toast.success("Message sent! We'll get back to you within 24 hours. 💌", {
+      style: {
+        background: "oklch(0.57 0.13 42)",
+        color: "#fff",
+        borderRadius: "12px",
+      },
+    });
+    setForm({ name: "", email: "", subject: "", message: "" });
+  };
+
+  return (
+    <main className="min-h-screen">
+      {/* Hero */}
+      <div className="bg-gradient-to-br from-amber-50 via-ditto-cream to-rose-50/40 pt-28 pb-16 text-center">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+          <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-4 block">
+            Get in Touch
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight mb-4">
+            We&apos;d Love to <span className="text-primary">Hear From You</span>
+          </h1>
+          <p className="text-muted-foreground text-lg">
+            Questions, feedback, or just want to say hi? Our team usually responds within 24 hours.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid lg:grid-cols-3 gap-12">
+          {/* Contact Info */}
+          <div className="space-y-6">
+            <h2 className="text-xl font-bold text-foreground">Contact Info</h2>
+            {[
+              { icon: Mail, label: "Email", value: "hello@dittoskincare.com" },
+              { icon: Phone, label: "Phone", value: "+1 (800) DITTO-SK" },
+              { icon: MapPin, label: "Address", value: "123 Natural Way, Wellness City, CA 90210" },
+            ].map(({ icon: Icon, label, value }) => (
+              <div key={label} className="flex gap-4">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-4 h-4 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-0.5">{label}</p>
+                  <p className="text-sm text-foreground">{value}</p>
+                </div>
+              </div>
+            ))}
+
+            <div className="p-5 rounded-2xl bg-ditto-sage-light/50 border border-ditto-sage/20 mt-6">
+              <p className="text-sm font-semibold text-foreground mb-1">Business Hours</p>
+              <p className="text-sm text-muted-foreground">Mon – Fri: 9am – 6pm (GMT)</p>
+              <p className="text-sm text-muted-foreground">Sat: 10am – 2pm (GMT)</p>
+              <p className="text-sm text-muted-foreground">Sun: Closed</p>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="lg:col-span-2">
+            <div className="bg-card border border-border rounded-3xl p-8">
+              <h2 className="text-xl font-bold text-foreground mb-6">Send Us a Message</h2>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-1.5">
+                      Name <span className="text-primary">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      placeholder="Your name"
+                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-1.5">
+                      Email <span className="text-primary">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      placeholder="your@email.com"
+                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">Subject</label>
+                  <input
+                    type="text"
+                    value={form.subject}
+                    onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                    placeholder="How can we help?"
+                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">
+                    Message <span className="text-primary">*</span>
+                  </label>
+                  <textarea
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    placeholder="Tell us more..."
+                    rows={5}
+                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-none"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={sending}
+                  className="w-full flex items-center justify-center gap-2 py-4 bg-primary text-primary-foreground rounded-2xl font-semibold text-sm hover:bg-primary/90 disabled:opacity-60 transition-all shadow-lg shadow-primary/20"
+                >
+                  {sending ? (
+                    <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                  ) : (
+                    <Send className="w-4 h-4" />
+                  )}
+                  {sending ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mt-20" id="faq">
+          <div className="text-center mb-10">
+            <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-3 block">
+              FAQ
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
+              Frequently Asked <span className="text-primary">Questions</span>
+            </h2>
+          </div>
+          <div className="max-w-3xl mx-auto space-y-3">
+            {faqs.map((faq) => (
+              <FAQItem key={faq.q} {...faq} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+====================================================
+FILE: ./src/pages/Home.jsx
+====================================================
+import { Link } from "react-router-dom";
+import Hero from "@/components/Hero";
+import CategoryCard from "@/components/CategoryCard";
+import ProductCard from "@/components/ProductCard";
+import Benefits from "@/components/Benefits";
+import Testimonials from "@/components/Testimonials";
+import IngredientsSpotlight from "@/components/IngredientsSpotlight";
+import { categories, products } from "@/data/products";
+import { ArrowRight } from "lucide-react";
+
+const featuredProducts = products.filter((p) => p.featured);
+
+export default function Home() {
+  return (
+    <main>
+      {/* Hero */}
+      <Hero />
+
+      {/* Product Categories */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+            <div>
+              <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-3 block">
+                Collections
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
+                Shop by{" "}
+                <span className="text-primary">Category</span>
+              </h2>
+            </div>
+            <Link
+              to="/shop"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-3 transition-all"
+            >
+              View All <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {categories.map((cat) => (
+              <CategoryCard key={cat.id} category={cat} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products / Best Sellers */}
+      <section className="py-24 bg-gradient-to-b from-white to-ditto-cream/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+            <div>
+              <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-3 block">
+                Best Sellers
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
+                Customer{" "}
+                <span className="text-primary">Favorites</span>
+              </h2>
+            </div>
+            <Link
+              to="/shop"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-3 transition-all"
+            >
+              See Full Shop <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+            {featuredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <Benefits />
+
+      {/* Shop by Concern */}
+      <section className="py-24 bg-gradient-to-r from-amber-50 via-ditto-cream to-rose-50/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-3 block">
+              Find Your Match
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight mb-3">
+              Shop by <span className="text-primary">Concern</span>
+            </h2>
+            <p className="text-muted-foreground max-w-lg mx-auto">
+              Not sure where to start? We&apos;ve curated collections to address your specific skin needs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { emoji: "🌵", label: "Dry Skin", desc: "Deep hydration formulas", color: "hover:border-amber-300 hover:bg-amber-50" },
+              { emoji: "🌸", label: "Sensitive Skin", desc: "Gentle, fragrance-free picks", color: "hover:border-rose-300 hover:bg-rose-50" },
+              { emoji: "🤰", label: "Pregnancy", desc: "Safe & bump-approved", color: "hover:border-green-300 hover:bg-green-50" },
+              { emoji: "✨", label: "Anti-Aging", desc: "Firming & brightening", color: "hover:border-purple-300 hover:bg-purple-50" },
+            ].map(({ emoji, label, desc, color }) => (
+              <Link
+                key={label}
+                to="/shop"
+                className={`group p-6 rounded-2xl border border-border bg-card text-center transition-all duration-200 ${color} hover:shadow-md hover:-translate-y-1`}
+              >
+                <span className="text-4xl block mb-3 group-hover:scale-110 transition-transform duration-300">
+                  {emoji}
+                </span>
+                <p className="font-semibold text-foreground text-sm">{label}</p>
+                <p className="text-xs text-muted-foreground mt-1">{desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ingredients Spotlight */}
+      <IngredientsSpotlight />
+
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* CTA Banner */}
+      <section className="py-20 bg-primary">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-4">
+            Ready to Transform Your Skin?
+          </h2>
+          <p className="text-primary-foreground/80 mb-8 text-lg max-w-xl mx-auto">
+            Join 50,000+ customers who have discovered the DITTO difference. Free shipping on orders over $50.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/shop"
+              className="px-8 py-4 bg-primary-foreground text-primary rounded-2xl font-semibold text-base hover:bg-white transition-colors shadow-lg"
+            >
+              Shop Now
+            </Link>
+            <Link
+              to="/about"
+              className="px-8 py-4 border-2 border-primary-foreground/30 text-primary-foreground rounded-2xl font-semibold text-base hover:bg-primary-foreground/10 transition-colors"
+            >
+              Learn Our Story
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+====================================================
+FILE: ./src/pages/Ingredients.jsx
+====================================================
+import { ingredients } from "@/data/products";
+import { MapPin, Leaf, FlaskConical } from "lucide-react";
+
+const standards = [
+  {
+    icon: Leaf,
+    title: "Ethically Sourced",
+    desc: "We work directly with farmers and co-ops to ensure fair wages and sustainable farming practices.",
+    color: "bg-green-50 text-green-600",
+  },
+  {
+    icon: FlaskConical,
+    title: "Science-Backed",
+    desc: "Every ingredient we use has peer-reviewed research supporting its efficacy and safety profile.",
+    color: "bg-blue-50 text-blue-600",
+  },
+  {
+    icon: MapPin,
+    title: "Transparently Traced",
+    desc: "We publish the origin of every key ingredient so you know exactly what's on your skin.",
+    color: "bg-amber-50 text-amber-600",
+  },
+];
+
+export default function Ingredients() {
+  return (
+    <main className="min-h-screen">
+      {/* Hero */}
+      <div className="bg-gradient-to-br from-green-50 via-ditto-cream to-amber-50/60 pt-28 pb-16 text-center">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+          <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-4 block">
+            What&apos;s Inside
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight mb-4">
+            Ingredients You Can{" "}
+            <span className="text-primary">Actually Pronounce</span>
+          </h1>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            We believe you deserve to know exactly what goes on your skin. No hidden chemicals, no confusing labels — just honest, powerful ingredients from nature.
+          </p>
+        </div>
+      </div>
+
+      {/* Standards */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20">
+            {standards.map(({ icon: Icon, title, desc, color }) => (
+              <div key={title} className="p-6 rounded-2xl border border-border bg-card">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${color}`}>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Ingredient Cards */}
+          <div className="text-center mb-12">
+            <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-3 block">
+              Star Ingredients
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
+              Nature&apos;s Most Powerful{" "}
+              <span className="text-primary">Actives</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {ingredients.map((ingredient) => (
+              <div
+                key={ingredient.id}
+                className={`group p-7 rounded-2xl border ${ingredient.color} hover:shadow-lg transition-all duration-300`}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-5xl group-hover:scale-110 transition-transform duration-300">
+                    {ingredient.emoji}
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-foreground text-lg leading-tight">{ingredient.name}</h3>
+                    <div className="flex items-center gap-1 mt-1">
+                      <MapPin className="w-3 h-3 text-muted-foreground" />
+                      <span className="text-xs text-muted-foreground">{ingredient.source}</span>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-sm text-foreground/70 leading-relaxed">{ingredient.benefit}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Never List */}
+      <section className="py-16 bg-ditto-cream/40">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-4 block">
+            Our Promise
+          </span>
+          <h2 className="text-3xl font-bold text-foreground mb-4 tracking-tight">
+            What We <span className="text-destructive">Never</span> Use
+          </h2>
+          <p className="text-muted-foreground mb-10">
+            DITTO is free from over 1,400 EU-banned ingredients, plus these common culprits:
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              "Parabens", "Sulfates", "Phthalates", "Mineral Oil",
+              "Artificial Fragrance", "Formaldehyde", "Triclosan",
+              "Petrolatum", "Silicones", "Synthetic Dyes", "BHA / BHT",
+              "Oxybenzone",
+            ].map((item) => (
+              <span
+                key={item}
+                className="px-4 py-2 rounded-full bg-destructive/8 text-destructive text-sm font-medium border border-destructive/20"
+              >
+                ✗ {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+====================================================
+FILE: ./src/pages/NotFound.jsx
+====================================================
+export default function NotFound() {
+  return (
+    <main className="min-h-screen flex flex-col items-center justify-center pt-20 text-center px-4">
+      <span className="text-8xl mb-6">🌿</span>
+      <h1 className="text-4xl font-bold text-foreground mb-3">
+        Page Not Found
+      </h1>
+      <p className="text-muted-foreground mb-8">
+        Looks like this page went looking for moisture somewhere else.
+      </p>
+      <a
+        href="/"
+        className="px-8 py-4 bg-primary text-primary-foreground rounded-2xl font-semibold hover:bg-primary/90 transition-colors"
+      >
+        Back to Home
+      </a>
+    </main>
+  );
+}
+
+====================================================
+FILE: ./src/pages/ProductDetail.jsx
+====================================================
+import { useParams, Link } from "react-router-dom";
+import { Star, ShoppingBag, ArrowLeft, Check } from "lucide-react";
+import { products } from "@/data/products";
+import { useCart } from "@/context/CartContext";
+import ProductCard from "@/components/ProductCard";
+
+function StarRating({ rating, size = "w-5 h-5" }) {
+  return (
+    <div className="flex gap-0.5">
+      {[1, 2, 3, 4, 5].map((s) => (
+        <Star key={s} className={`${size} ${s <= Math.floor(rating) ? "fill-amber-400 text-amber-400" : "fill-muted text-muted"}`} />
+      ))}
+    </div>
+  );
+}
+
+export default function ProductDetail() {
+  const { id } = useParams();
+  const { addToCart } = useCart();
+
+  const product = products.find((p) => p.id === Number(id));
+  const related = products.filter((p) => p.id !== product?.id && p.category === product?.category).slice(0, 3);
+
+  if (!product) {
+    return (
+      <main className="min-h-screen flex flex-col items-center justify-center pt-20">
+        <p className="text-2xl font-bold text-foreground mb-4">Product Not Found</p>
+        <Link to="/shop" className="text-primary hover:underline">← Back to Shop</Link>
+      </main>
+    );
+  }
+
+  return (
+    <main className="min-h-screen pt-20 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Back */}
+        <Link
+          to="/shop"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back to Shop
+        </Link>
+
+        <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          {/* Image */}
+          <div className="rounded-3xl overflow-hidden bg-accent/30 aspect-square">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Info */}
+          <div className="flex flex-col">
+            {product.tag && (
+              <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4 self-start">
+                {product.tag}
+              </span>
+            )}
+
+            <h1 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-3">
+              {product.name}
+            </h1>
+
+            <div className="flex items-center gap-3 mb-4">
+              <StarRating rating={product.rating} />
+              <span className="text-sm text-muted-foreground">
+                {product.rating} ({product.reviews} reviews)
+              </span>
+            </div>
+
+            <p className="text-muted-foreground leading-relaxed mb-6">{product.description}</p>
+
+            <p className="text-3xl font-bold text-foreground mb-6">${product.price.toFixed(2)}</p>
+
+            {/* Ingredients */}
+            {product.ingredients && (
+              <div className="mb-6">
+                <p className="text-sm font-semibold text-foreground mb-2">Key Ingredients</p>
+                <div className="flex flex-wrap gap-2">
+                  {product.ingredients.map((ing) => (
+                    <span key={ing} className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-ditto-sage-light/60 text-foreground border border-ditto-sage/20">
+                      <Check className="w-3 h-3 text-ditto-sage" />
+                      {ing}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Benefits badges */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {["Cruelty-Free", "Natural", "Derm Tested", "Vegan"].map((b) => (
+                <span key={b} className="text-xs px-3 py-1 rounded-full border border-border text-muted-foreground">
+                  {b}
+                </span>
+              ))}
+            </div>
+
+            <button
+              onClick={() => addToCart(product)}
+              className="flex items-center justify-center gap-2 w-full sm:w-auto sm:px-10 py-4 bg-primary text-primary-foreground rounded-2xl font-semibold text-base hover:bg-primary/90 active:scale-[0.98] transition-all shadow-lg shadow-primary/20"
+            >
+              <ShoppingBag className="w-5 h-5" />
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        {/* Related */}
+        {related.length > 0 && (
+          <section>
+            <h2 className="text-2xl font-bold text-foreground mb-6 tracking-tight">
+              You May Also Like
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {related.map((p) => (
+                <ProductCard key={p.id} product={p} />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    </main>
+  );
+}
+
+====================================================
+FILE: ./src/pages/Shop.jsx
+====================================================
+import { useState, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
+import { Search, SlidersHorizontal, X } from "lucide-react";
+import ProductCard from "@/components/ProductCard";
+import { products, categories } from "@/data/products";
+
+const sortOptions = [
+  { value: "featured", label: "Featured" },
+  { value: "price-asc", label: "Price: Low to High" },
+  { value: "price-desc", label: "Price: High to Low" },
+  { value: "rating", label: "Best Rated" },
+];
+
+export default function Shop() {
+  const [searchParams] = useSearchParams();
+  const initialCategory = searchParams.get("category") || "all";
+
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const [sortBy, setSortBy] = useState("featured");
+  const [search, setSearch] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+
+  const filtered = useMemo(() => {
+    let result = [...products];
+
+    if (selectedCategory !== "all") {
+      result = result.filter((p) => p.category === selectedCategory);
+    }
+
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      result = result.filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q)
+      );
+    }
+
+    switch (sortBy) {
+      case "price-asc":
+        result.sort((a, b) => a.price - b.price);
+        break;
+      case "price-desc":
+        result.sort((a, b) => b.price - a.price);
+        break;
+      case "rating":
+        result.sort((a, b) => b.rating - a.rating);
+        break;
+      default:
+        result.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+    }
+
+    return result;
+  }, [selectedCategory, sortBy, search]);
+
+  return (
+    <main className="min-h-screen bg-ditto-cream/30">
+      {/* Page Header */}
+      <div className="bg-gradient-to-br from-amber-50 via-ditto-cream to-rose-50/40 pt-28 pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="text-xs font-semibold tracking-widest text-primary uppercase mb-3 block">
+            All Products
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight mb-3">
+            The DITTO <span className="text-primary">Collection</span>
+          </h1>
+          <p className="text-muted-foreground text-lg">
+            {products.length} premium skincare products, made with love and nature.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Controls */}
+        <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-8">
+          {/* Search */}
+          <div className="relative w-full sm:max-w-xs">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search products..."
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-card border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+            />
+            {search && (
+              <button
+                onClick={() => setSearch("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2"
+              >
+                <X className="w-3.5 h-3.5 text-muted-foreground" />
+              </button>
+            )}
+          </div>
+
+          <div className="flex items-center gap-3">
+            {/* Mobile filter toggle */}
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className="sm:hidden flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-card text-sm font-medium"
+            >
+              <SlidersHorizontal className="w-4 h-4" />
+              Filter
+            </button>
+
+            {/* Sort */}
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="px-4 py-2.5 rounded-xl bg-card border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary cursor-pointer"
+            >
+              {sortOptions.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {o.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="flex gap-8">
+          {/* Sidebar Filters (desktop always visible, mobile toggle) */}
+          <aside
+            className={`${
+              showFilters ? "block" : "hidden"
+            } sm:block w-full sm:w-56 flex-shrink-0`}
+          >
+            <div className="bg-card border border-border rounded-2xl p-5 sticky top-24">
+              <h3 className="font-semibold text-foreground mb-4">Category</h3>
+              <div className="space-y-1">
+                <button
+                  onClick={() => setSelectedCategory("all")}
+                  className={`w-full text-left px-3 py-2 rounded-xl text-sm transition-colors ${
+                    selectedCategory === "all"
+                      ? "bg-primary/10 text-primary font-medium"
+                      : "text-muted-foreground hover:bg-accent"
+                  }`}
+                >
+                  All Products ({products.length})
+                </button>
+                {categories.map((cat) => {
+                  const count = products.filter((p) => p.category === cat.id).length;
+                  return (
+                    <button
+                      key={cat.id}
+                      onClick={() => setSelectedCategory(cat.id)}
+                      className={`w-full text-left px-3 py-2 rounded-xl text-sm transition-colors ${
+                        selectedCategory === cat.id
+                          ? "bg-primary/10 text-primary font-medium"
+                          : "text-muted-foreground hover:bg-accent"
+                      }`}
+                    >
+                      {cat.name} ({count})
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </aside>
+
+          {/* Product Grid */}
+          <div className="flex-1 min-w-0">
+            {filtered.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-24 text-center">
+                <span className="text-6xl mb-4">🔍</span>
+                <p className="font-semibold text-foreground mb-2">No products found</p>
+                <p className="text-sm text-muted-foreground">
+                  Try a different search or category
+                </p>
+                <button
+                  onClick={() => { setSearch(""); setSelectedCategory("all"); }}
+                  className="mt-4 px-5 py-2 bg-primary text-primary-foreground rounded-xl text-sm font-medium"
+                >
+                  Clear Filters
+                </button>
+              </div>
+            ) : (
+              <>
+                <p className="text-sm text-muted-foreground mb-5">
+                  Showing {filtered.length} product{filtered.length !== 1 ? "s" : ""}
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                  {filtered.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+====================================================
+FILE: ./src/router.jsx
+====================================================
+// App.jsx/router.jsx
+import { createBrowserRouter } from "react-router-dom";
+import MainLayout from "@/layout/MainLayout";
+import Home from "@/pages/Home";
+import Shop from "@/pages/Shop";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
+import Ingredients from "@/pages/Ingredients";
+import ProductDetail from "@/pages/ProductDetail";
+import NotFound from "@/pages/NotFound";
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />, // Your layout wraps all children
+    errorElement: <NotFound />, // renders if route not found or loader throws
+    children: [
+      { index: true, element: <Home /> }, // "/" route
+      { path: "shop", element: <Shop /> },
+      { path: "about", element: <About /> },
+      { path: "contact", element: <Contact /> },
+      { path: "ingredients", element: <Ingredients /> },
+      { path: "product/:id", element: <ProductDetail /> },
+      { path: "*", element: <NotFound /> }, // Catch-all 404
+    ],
+  },
+]);
+
+====================================================
+FILE: ./tailwind.config.js
+====================================================
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+====================================================
+FILE: ./vite.config.js
+====================================================
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from "@tailwindcss/vite";
+import path from "path";
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+});
+
+// for aliases, plugins,

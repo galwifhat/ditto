@@ -1,13 +1,3 @@
-
-
-function App() {
-
-
-  return (
-    <>
-      <div>Hello World</div>
-    </>
-  )
+export default function App() {
+  return null; // Nothing needed here, router handles all
 }
-
-export default App
