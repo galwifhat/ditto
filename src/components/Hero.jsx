@@ -2,10 +2,38 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 const floatingCards = [
-  { top: "10%", left: "5%", label: "Shea Butter", sub: "Body Butter", delay: "0s", img: "https://picsum.photos/seed/ditto-bb1/120/160" },
-  { top: "55%", left: "2%", label: "Rosehip Oil", sub: "Face Serum", delay: "1.5s", img: "https://picsum.photos/seed/ditto-face/120/160" },
-  { top: "8%", right: "3%", label: "Honey Lip Balm", sub: "Lip Care", delay: "1s", img: "https://picsum.photos/seed/ditto-lip/120/160" },
-  { top: "60%", right: "5%", label: "Body Lotion", sub: "Daily Ritual", delay: "2s", img: "https://picsum.photos/seed/ditto-lotion/120/160" },
+  {
+    top: "10%",
+    left: "5%",
+    label: "Shea Butter",
+    sub: "Body Butter",
+    delay: "0s",
+    img: "/images/products/shea _butter_cream.png",
+  },
+  {
+    top: "55%",
+    left: "2%",
+    label: "Rosehip Oil",
+    sub: "Face Serum",
+    delay: "1.5s",
+    img: "/images/products/heel_balm.png",
+  },
+  {
+    top: "8%",
+    right: "3%",
+    label: "Honey Lip Balm",
+    sub: "Lip Care",
+    delay: "1s",
+    img: "/images/products/lip_balm.png",
+  },
+  {
+    top: "60%",
+    right: "5%",
+    label: "Body Lotion",
+    sub: "Daily Ritual",
+    delay: "2s",
+    img: "/images/products/coconut_body_butter.png",
+  },
 ];
 
 export default function Hero() {
